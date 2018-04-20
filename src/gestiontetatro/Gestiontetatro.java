@@ -7,9 +7,11 @@ package gestiontetatro;
  */
 public class Gestiontetatro {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
+    void quepasaillo(){
+        
+    }
     public static void main(String[] args) {
      
         System.out.println("HOLA CECILIA");
