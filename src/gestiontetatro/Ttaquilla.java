@@ -5,6 +5,8 @@
  */
 package gestiontetatro;
 
+import java.util.Iterator;
+
 /**
  *
  * @author david
@@ -27,7 +29,26 @@ public class Ttaquilla extends Trabajador{
                 + "Ttaquilla{" + "idTaquilla=" + idTaquilla + '}';
     }
     
-   public void ventaEntrada(){
+   //falta poner el nombre de la colecciÃ³n de entradas 
+    public void vendeEntrada(int id, int cantidad, Entrada coleccion){
+        
        
-   }
+           
+              Iterator borrar  = coleccion.iterator(); //si no borra mira aqui
+             if(object.getID()==id && object.getnumEntradas()>=cantidad){
+                while(cantidad>0){    
+                    while (borrar.hasNext()){
+                        Entrada et = (Entrada)borrar.next();
+                        
+                            
+                                 cantidad--;
+                                 coleccion.remove(et);
+                    }
+                           
+                }
+            }
+        else{
+                 System.out.println("no quedan entradas disponibles o no ocincide el id de entrada");
+                            }
+    }
 }
