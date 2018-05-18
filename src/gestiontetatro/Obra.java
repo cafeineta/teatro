@@ -11,7 +11,7 @@ public class Obra{
     private int idObra;
     private String nombre, genero, idioma;
     private boolean traduccionSignos;
-    private ArrayList <Entrada> entradas;
+    public ArrayList <Entrada> entradas;
     
     //CONSTRUCTOR
     public Obra() {
@@ -25,7 +25,16 @@ public class Obra{
         this.traduccionSignos = traduccionSignos;
         this.entradas=new ArrayList();
     }
+
+    public int getIdObra() {
+        return idObra;
+    }
     
+    public int getnumentradas(){
+        int numero = 0;
+        numero = entradas.size();
+        return numero;
+    }
     //METODOS
     @Override
     public String toString() {

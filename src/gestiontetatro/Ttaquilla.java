@@ -14,7 +14,9 @@ import java.util.Iterator;
 public class Ttaquilla extends Trabajador{
     
     private int idTaquilla;
-
+   
+          
+    
     public Ttaquilla(int idTaquilla, String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) {
         super(NIF, nombre, apellidos, telefono, direccion, año1, mes1, dia1, año2, mes2, dia2);
         this.idTaquilla = idTaquilla;
@@ -30,25 +32,25 @@ public class Ttaquilla extends Trabajador{
     }
     
    //falta poner el nombre de la colecciÃ³n de entradas 
-    public void vendeEntrada(int id, int cantidad, Entrada coleccion){
+    public void vendeEntrada(int idObra, int cantidad, Obra obrat){
         
        
            
-              Iterator borrar  = coleccion.iterator(); //si no borra mira aqui
-             if(object.getID()==id && object.getnumEntradas()>=cantidad){
+              Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui
+             if((obrat.getIdObra()==idObra) && (obrat.getnumentradas())>= cantidad){
                 while(cantidad>0){    
                     while (borrar.hasNext()){
                         Entrada et = (Entrada)borrar.next();
                         
                             
                                  cantidad--;
-                                 coleccion.remove(et);
+                                 obrat.entradas.remove(et);
                     }
                            
                 }
             }
         else{
-                 System.out.println("no quedan entradas disponibles o no ocincide el id de entrada");
+                 System.out.println("no quedan entradas disponibles o no coincide el id de entrada");
                             }
     }
 }
