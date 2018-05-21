@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  *
  * @author CrisBlancoMena
+ * clase para la creacion y manejo de las obras de teatro
  */
 public class Obra{
     //ATRIBUTOS
@@ -30,6 +31,10 @@ public class Obra{
         return idObra;
     }
     
+    /**
+     * Función que devuelve el numero de entradas de una obra
+     * @return numero de entradas de la obra
+     */
     public int getnumentradas(){
         int numero = 0;
         numero = entradas.size();

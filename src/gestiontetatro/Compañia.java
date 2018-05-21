@@ -8,6 +8,7 @@ import java.util.Date;
 /**
  *
  * @author CrisBlancoMena
+ * clase creada para la creacion y acceso a las compañias de las Compañias 
  */
 public class Compañia {
     //ATRIBUTOS
@@ -29,6 +30,10 @@ public class Compañia {
     
     
     //METODOS
+    /**
+     * Función que transforma la fecha dada por el sistema al formato dia/mes/año
+     * @return la fecha en el formato indicado anteriormente
+     */
     public String formatoFecha(){
         SimpleDateFormat sdf= new SimpleDateFormat("dd/MMMMM/yyyy");
         

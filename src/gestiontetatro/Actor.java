@@ -3,6 +3,7 @@ import gestiontetatro.Compañia;
 /**
  *
  * @author CrisBlancoMena
+ * clase para crear los actores que pertenecen a una o varias compañias
  */
 public class Actor{
     //ATRIBUTOS
