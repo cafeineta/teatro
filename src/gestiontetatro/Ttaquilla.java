@@ -9,7 +9,8 @@ import java.util.Iterator;
 
 /**
  *
- * @author david
+ * @author Cecilia
+ * clase creada para la creación y acceso de los trabajadores del tipo taquilleros
  */
 public class Ttaquilla extends Trabajador{
     
@@ -32,6 +33,13 @@ public class Ttaquilla extends Trabajador{
     }
     
    //falta poner el nombre de la colecciÃ³n de entradas 
+    
+    /**
+     * Función que nos permite efectuar la venta de una entrada y la elimina de las entradas disponibles para esa obra
+     * @param idObra identificador de la obra para la que queremos entradas
+     * @param cantidad número de entradas que queremos comprar
+     * @param obrat ArrayList con todas las obras disponibles en el teatro
+     */
     public void vendeEntrada(int idObra, int cantidad, Obra obrat){
         
        

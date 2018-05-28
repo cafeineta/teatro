@@ -9,10 +9,12 @@ import java.util.Calendar;
 
 /**
  *
- * @author david
+ * @author Cecilia
+ * clase creada para la creación y acceso a los datos de los trabajadores
  */
 public class Trabajador {
     
+    //atributos
     private String NIF, nombre, apellidos, telefono, direccion;
     private Calendar fechaNacimiento, fechaIngreso;
 

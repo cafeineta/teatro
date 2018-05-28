@@ -7,7 +7,8 @@ package gestiontetatro;
 
 /**
  *
- * @author david
+ * @author Cecilia
+ * clase creada para la creación y acceso de los trabajadores del tipo acomodador
  */
 public class Tacomodador extends Trabajador{
     

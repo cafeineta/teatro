@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  *
  * @author CrisBlancoMena
- * clase creada para la creacion y acceso a las compañias de las Compañias 
+ * clase creada para la creacion y acceso a las compañias que trabajan en el teatro
  */
 public class Compañia {
     //ATRIBUTOS
