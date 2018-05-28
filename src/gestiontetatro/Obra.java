@@ -1,6 +1,7 @@
 package gestiontetatro;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
@@ -12,19 +13,25 @@ public class Obra{
     private int idObra;
     private String nombre, genero, idioma;
     private boolean traduccionSignos;
-    public ArrayList <Entrada> entradas;
-    
+    //public ArrayList <Entrada> entradas;
+    public LinkedList  entradas;
     //CONSTRUCTOR
     public Obra() {
     }
 
-    public Obra(int id, String nombre, String genero, String idioma, boolean traduccionSignos) {
+    public Obra(int id, String nombre, String genero, String idioma, boolean traduccionSignos,int ent) {
         this.idObra = id;
         this.nombre = nombre;
         this.genero = genero;
         this.idioma = idioma;
         this.traduccionSignos = traduccionSignos;
-        this.entradas=new ArrayList();
+        this.entradas=new LinkedList();
+        for(int i=ent; i>0; i--){
+            Entrada e=new Entrada();
+            this.entradas.addFirst(e);
+        }
+        
+        
     }
 
     public int getIdObra() {

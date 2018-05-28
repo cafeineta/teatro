@@ -28,29 +28,21 @@ public class Cliente {
     }
     
     
-    public void compraentrada(int idObra, int cantidad, Obra obrat){
-        
-                 Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui
-             if((obrat.getIdObra()==idObra) && (obrat.getnumentradas())>= cantidad){
-                while(cantidad>0){    
-                    while (borrar.hasNext()){
-                        Entrada et = (Entrada)borrar.next();
-                        
-                            
-                                 cantidad--;
-                                 obrat.entradas.remove(et);
-                                 
-                    }
-                           
-                }
-                System.out.println("Ha finalizado su compra con exito");
+    public void compraEntrada(int idObra, int cantidad, Obra obrat){
+        if(obrat.getIdObra()==idObra){
+            for(int i=cantidad; i>0; i--){
+                obrat.entradas.removeFirst();
             }
+            System.out.println(obrat.entradas.size());
+            System.out.println("Entradas compradas correctamente");
+        }
         else{
-                 System.out.println("no quedan entradas disponibles o no coincide el id de entrada");
-                            }
+            System.out.println("No se pueden realizar las entradas, no hay suficiente no coincide el id");
+        }
+       
     }
     
-    public void reservaentradas (int idObra, int cantidad, Obra obrat){
+    public void reservaEntradas (int idObra, int cantidad, Obra obrat){
                  Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui
              if((obrat.getIdObra()==idObra) && (obrat.getnumentradas())>= cantidad){
                 while(cantidad>0){    
