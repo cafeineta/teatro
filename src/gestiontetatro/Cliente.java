@@ -5,6 +5,7 @@
  */
 package gestiontetatro;
 
+import static gestiontetatro.DNINoValido.dniNo;
 import java.util.Iterator;
 
 /**
@@ -19,19 +20,34 @@ public class Cliente {
     private String email;
     private char metodopago;
 
-    public Cliente(String NIF, String nombre, String apellidos, String email, char metodopago) {
-        this.NIF = NIF;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.metodopago = metodopago;
+    public Cliente(String NIF, String nombre, String apellidos, String email, char metodopago) throws DNINoValido {
+        
+        try{
+             if(dniNo(NIF)==true){ 
+                     this.nombre = nombre;
+                     this.apellidos = apellidos;
+                     this.email = email;
+                     this.metodopago = metodopago;               
+                     this.NIF=NIF;
+                }
+                else{
+                    
+                }
+               
+            
+            
+        }
+        catch(DNINoValido e){
+            System.out.println("Se ha producido una excepcion en el DNI");
+            e.printStackTrace();
+        }
     }
     
     
     public void compraEntrada(int idObra, int cantidad, Obra obrat){
         if(obrat.getIdObra()==idObra){
             for(int i=cantidad; i>0; i--){
-                obrat.entradas.removeFirst();
+                obrat.entradas.removeLast();
             }
             System.out.println(obrat.entradas.size());
             System.out.println("Entradas compradas correctamente");

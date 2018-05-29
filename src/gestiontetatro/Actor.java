@@ -1,5 +1,6 @@
 package gestiontetatro;
 import gestiontetatro.Compañia;
+import static gestiontetatro.DNINoValido.dniNo;
 /**
  *
  * @author CrisBlancoMena
@@ -15,15 +16,25 @@ public class Actor{
     }
 
     public Actor(String nombre, String apellidos, String NIF) {       
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.NIF = NIF;       
+        
+        try{
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            dniNo(NIF);
+            this.NIF = NIF;    
+        }
+        catch(DNINoValido e){
+            System.out.println("Se ha producido una excepcion en el DNI");
+            e.printStackTrace();
+        }
+           
     }
 
     @Override
     public String toString() {
         return "Actor{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", NIF=" + NIF+ "}";
     }
+    
     
     
     
