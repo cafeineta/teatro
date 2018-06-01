@@ -19,7 +19,7 @@ public class Cliente {
     private String apellidos;
     private String email;
     private char metodopago;
-
+    
     public Cliente(String NIF, String nombre, String apellidos, String email, char metodopago) throws ValidarDNI {
         
         try{
@@ -43,7 +43,12 @@ public class Cliente {
         }
     }
     
-    
+    /**
+     * funcion que realiza la compra de una entrada, si el Id de la Obra coincide con el de la obra podida por el cliente, y hay entradas suficientes, deberia permitir la compra de estas
+     * @param idObra identificador de la Obra
+     * @param cantidad contidad de entradas requeridas por el cliente
+     * @param obrat Objeto Obra del que necesitamos obtenr metodos
+     */
     public void compraEntrada(int idObra, int cantidad, Obra obrat){
         if(obrat.getIdObra()==idObra){
             for(int i=cantidad; i>0; i--){
@@ -57,7 +62,12 @@ public class Cliente {
         }
        
     }
-    
+    /**
+     * hace practicamente la misma funcion que comprar entradas
+     * @param idObra
+     * @param cantidad
+     * @param obrat 
+     */
     public void reservaEntradas (int idObra, int cantidad, Obra obrat){
                  Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui
              if((obrat.getIdObra()==idObra) && (obrat.getnumentradas())>= cantidad){

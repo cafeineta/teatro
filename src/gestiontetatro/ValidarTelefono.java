@@ -14,7 +14,12 @@ public class ValidarTelefono extends Exception{
     public ValidarTelefono() {
         super("Telefono introducido incorrecto");
     }
-    
+    /**
+     * metdodo que valida que el numero de telefono sea correcto, si no lo es deberia lanzar la excepcion y notificarlo adecuadamente
+     * @param tele es el numero de telefono a evaluar por el metodo
+     * @return si el telefono es adecuado retornara el telefono cargado en el String bueno
+     * @throws ValidarTelefono 
+     */
     public static String validaTel(String tele) throws ValidarTelefono{
         String bueno = null;
   
