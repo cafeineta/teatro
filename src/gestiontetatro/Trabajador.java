@@ -5,8 +5,12 @@
  */
 package gestiontetatro;
 
+import static gestiontetatro.ValidarFecha.validaDia;
+import static gestiontetatro.ValidarFecha.validaMes;
 import static gestiontetatro.ValidarTelefono.validaTel;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,11 +30,17 @@ public class Trabajador {
             this.apellidos = apellidos;
             this.telefono = validaTel(telefono);
             this.direccion = direccion;
-            this.fechaNacimiento.set(año1, mes1, dia1);
-            this.fechaIngreso.set(año2, mes2, dia2);
+            int diaval=validaDia(dia1);
+            int mesval=validaMes(mes1);
+            this.fechaNacimiento.set(año1, mesval, diaval);
+            diaval=validaDia(dia2);
+            mesval=validaMes(mes2);
+            this.fechaIngreso.set(año2, mesval, diaval);
         }
         catch(ValidarTelefono e){
             e.printStackTrace();
+        } catch (ValidarFecha ex) {
+            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
