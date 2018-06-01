@@ -5,6 +5,7 @@
  */
 package gestiontetatro;
 
+import static gestiontetatro.ValidarTelefono.validaTel;
 import java.util.Calendar;
 
 /**
@@ -18,14 +19,19 @@ public class Trabajador {
     private String NIF, nombre, apellidos, telefono, direccion;
     private Calendar fechaNacimiento, fechaIngreso;
 
-    public Trabajador(String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) {
-        this.NIF = NIF;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.fechaNacimiento.set(año1, mes1, dia1);
-        this.fechaIngreso.set(año2, mes2, dia2);
+    public Trabajador(String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {
+        try{
+            this.NIF = NIF;
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.telefono = validaTel(telefono);
+            this.direccion = direccion;
+            this.fechaNacimiento.set(año1, mes1, dia1);
+            this.fechaIngreso.set(año2, mes2, dia2);
+        }
+        catch(ValidarTelefono e){
+            e.printStackTrace();
+        }
     }
 
     public Trabajador() {

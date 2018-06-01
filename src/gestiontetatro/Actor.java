@@ -1,6 +1,6 @@
 package gestiontetatro;
 import gestiontetatro.Compañia;
-import static gestiontetatro.DNINoValido.dniNo;
+import static gestiontetatro.ValidarDNI.dniNo;
 /**
  *
  * @author CrisBlancoMena
@@ -23,7 +23,7 @@ public class Actor{
             dniNo(NIF);
             this.NIF = NIF;    
         }
-        catch(DNINoValido e){
+        catch(ValidarDNI e){
             System.out.println("Se ha producido una excepcion en el DNI");
             e.printStackTrace();
         }

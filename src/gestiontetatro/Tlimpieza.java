@@ -14,7 +14,7 @@ public class Tlimpieza extends Trabajador{
     
     private int idLimpieza;
 
-    public Tlimpieza(int idLimpieza, String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) {
+    public Tlimpieza(int idLimpieza, String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {
         super(NIF, nombre, apellidos, telefono, direccion, año1, mes1, dia1, año2, mes2, dia2);
         this.idLimpieza = idLimpieza;
     }

@@ -9,9 +9,9 @@ package gestiontetatro;
  *
  * @author CristinaBlanMen
  */
-public class DNINoValido extends Exception{
+public class ValidarDNI extends Exception{
 
-    public DNINoValido() {
+    public ValidarDNI() {
         super("El DNI introducido es incorrecto");
     }
     /**
@@ -19,9 +19,9 @@ public class DNINoValido extends Exception{
      * 8-numeros 1-letra
      * @param dni parametro introducido en el constructor del objeto
      * @return si el valido o no el DNI
-     * @throws DNINoValido si el valor del DNI es incorrecto
+     * @throws ValidarDNI si el valor del DNI es incorrecto
      */
-   static  public boolean dniNo(String dni) throws DNINoValido{
+   static  public boolean dniNo(String dni) throws ValidarDNI{
        boolean solucion=true; 
        char letras; //1
         int longitud=dni.length();
@@ -31,7 +31,7 @@ public class DNINoValido extends Exception{
                 
                 }else{
                     solucion=false;
-                    throw new DNINoValido();
+                    throw new ValidarDNI();
                     }            
             }        
             letras=dni.charAt(longitud-1);
@@ -39,11 +39,11 @@ public class DNINoValido extends Exception{
 
             } else{
                 solucion=false;
-                throw new DNINoValido();
+                throw new ValidarDNI();
                 }
         }else{
             solucion=false;
-            throw new DNINoValido();
+            throw new ValidarDNI();
         }
         return solucion;
         

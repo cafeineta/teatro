@@ -5,7 +5,7 @@
  */
 package gestiontetatro;
 
-import static gestiontetatro.DNINoValido.dniNo;
+import static gestiontetatro.ValidarDNI.dniNo;
 import java.util.Iterator;
 
 /**
@@ -20,7 +20,7 @@ public class Cliente {
     private String email;
     private char metodopago;
 
-    public Cliente(String NIF, String nombre, String apellidos, String email, char metodopago) throws DNINoValido {
+    public Cliente(String NIF, String nombre, String apellidos, String email, char metodopago) throws ValidarDNI {
         
         try{
              if(dniNo(NIF)==true){ 
@@ -37,7 +37,7 @@ public class Cliente {
             
             
         }
-        catch(DNINoValido e){
+        catch(ValidarDNI e){
             System.out.println("Se ha producido una excepcion en el DNI");
             e.printStackTrace();
         }

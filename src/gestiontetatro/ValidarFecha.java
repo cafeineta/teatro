@@ -11,18 +11,18 @@ import java.util.Scanner;
  *
  * @author Ceciliaherrero
  */
-public class ValidaFecha extends Exception{
+public class ValidarFecha extends Exception{
     
     static Scanner Entrada=new Scanner(System.in);
     static private int dia=0,mes=0;
     static private boolean seguir;
     
     
-    public ValidaFecha(){
+    public ValidarFecha(){
         super("La fecha introducida no es válida");
         }
     
-     public static int validaDia(int di) throws ValidaFecha{
+     public static int validaDia(int di) throws ValidarFecha{
          
          do { 
              //di=Entrada.nextInt();
@@ -40,7 +40,7 @@ public class ValidaFecha extends Exception{
             else{
                 
             }
-            throw new ValidaFecha();
+            throw new ValidarFecha();
          }
          
          }
@@ -48,7 +48,7 @@ public class ValidaFecha extends Exception{
          return dia;
      }
     
-    public static int validaMes (int me) throws ValidaFecha{
+    public static int validaMes (int me) throws ValidarFecha{
         do{
            
         if(me>=1 && me<=12){
@@ -63,7 +63,7 @@ public class ValidaFecha extends Exception{
                 me=Entrada.nextInt();
                 }
 
-            throw new ValidaFecha();
+            throw new ValidarFecha();
 }
             } while (seguir==true);     
         

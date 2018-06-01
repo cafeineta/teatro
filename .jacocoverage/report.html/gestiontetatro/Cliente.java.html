@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;gestiontetatro&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">gestiontetatro</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gestiontetatro;
+
+import static gestiontetatro.ValidarDNI.dniNo;
+import java.util.Iterator;
+
+/**
+ *
+ * @author DAW112
+ */
+public class Cliente {
+    
+    private String NIF;
+    private String nombre;
+    private String apellidos;
+    private String email;
+    private char metodopago;
+
+<span class="fc" id="L23">    public Cliente(String NIF, String nombre, String apellidos, String email, char metodopago) throws ValidarDNI {</span>
+        
+        try{
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">             if(dniNo(NIF)==true){ </span>
+<span class="fc" id="L27">                     this.nombre = nombre;</span>
+<span class="fc" id="L28">                     this.apellidos = apellidos;</span>
+<span class="fc" id="L29">                     this.email = email;</span>
+<span class="fc" id="L30">                     this.metodopago = metodopago;               </span>
+<span class="fc" id="L31">                     this.NIF=NIF;</span>
+                }
+                else{
+                    
+                }
+               
+            
+            
+        }
+<span class="nc" id="L40">        catch(ValidarDNI e){</span>
+<span class="nc" id="L41">            System.out.println(&quot;Se ha producido una excepcion en el DNI&quot;);</span>
+<span class="nc" id="L42">            e.printStackTrace();</span>
+<span class="fc" id="L43">        }</span>
+<span class="fc" id="L44">    }</span>
+    
+    
+    public void compraEntrada(int idObra, int cantidad, Obra obrat){
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if(obrat.getIdObra()==idObra){</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            for(int i=cantidad; i&gt;0; i--){</span>
+<span class="fc" id="L50">                obrat.entradas.removeLast();</span>
+            }
+<span class="fc" id="L52">            System.out.println(obrat.entradas.size());</span>
+<span class="fc" id="L53">            System.out.println(&quot;Entradas compradas correctamente&quot;);</span>
+        }
+        else{
+<span class="nc" id="L56">            System.out.println(&quot;No se pueden realizar las entradas, no hay suficiente no coincide el id&quot;);</span>
+        }
+       
+<span class="fc" id="L59">    }</span>
+    
+    public void reservaEntradas (int idObra, int cantidad, Obra obrat){
+<span class="nc" id="L62">                 Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui</span>
+<span class="nc bnc" id="L63" title="All 4 branches missed.">             if((obrat.getIdObra()==idObra) &amp;&amp; (obrat.getnumentradas())&gt;= cantidad){</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">                while(cantidad&gt;0){    </span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">                    while (borrar.hasNext()){</span>
+<span class="nc" id="L66">                        Entrada et = (Entrada)borrar.next();</span>
+                        
+                            
+<span class="nc" id="L69">                                 cantidad--;</span>
+<span class="nc" id="L70">                                 obrat.entradas.remove(et);</span>
+                                
+<span class="nc" id="L72">                    }</span>
+                           
+                }
+<span class="nc" id="L75">                 System.out.println(&quot;Sus entradas han quedado reservadas&quot;);</span>
+            }
+        else{
+<span class="nc" id="L78">                 System.out.println(&quot;no quedan entradas disponibles o no coincide el id de entrada&quot;);</span>
+                            }
+<span class="nc" id="L80">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

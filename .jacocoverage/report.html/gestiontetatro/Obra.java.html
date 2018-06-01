@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Obra.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;gestiontetatro&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">gestiontetatro</a> &gt; <span class="el_source">Obra.java</span></div><h1>Obra.java</h1><pre class="source lang-java linenums">package gestiontetatro;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+/**
+ *
+ * @author CrisBlancoMena
+ * clase para la creacion y manejo de las obras de teatro
+ */
+public class Obra{
+    //ATRIBUTOS
+    private int idObra;
+    private String nombre, genero, idioma;
+    private boolean traduccionSignos;
+    //public ArrayList &lt;Entrada&gt; entradas;
+    public LinkedList  entradas;
+    //CONSTRUCTOR
+<span class="nc" id="L19">    public Obra() {</span>
+<span class="nc" id="L20">    }</span>
+
+<span class="fc" id="L22">    public Obra(int id, String nombre, String genero, String idioma, boolean traduccionSignos,int ent) {</span>
+<span class="fc" id="L23">        this.idObra = id;</span>
+<span class="fc" id="L24">        this.nombre = nombre;</span>
+<span class="fc" id="L25">        this.genero = genero;</span>
+<span class="fc" id="L26">        this.idioma = idioma;</span>
+<span class="fc" id="L27">        this.traduccionSignos = traduccionSignos;</span>
+<span class="fc" id="L28">        this.entradas=new LinkedList();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for(int i=ent; i&gt;0; i--){</span>
+<span class="fc" id="L30">            Entrada e=new Entrada();</span>
+<span class="fc" id="L31">            this.entradas.addFirst(e);</span>
+        }
+        
+        
+<span class="fc" id="L35">    }</span>
+
+    public int getIdObra() {
+<span class="fc" id="L38">        return idObra;</span>
+    }
+    
+    /**
+     * Función que devuelve el numero de entradas de una obra
+     * @return numero de entradas de la obra
+     */
+    public int getnumentradas(){
+<span class="nc" id="L46">        int numero = 0;</span>
+<span class="nc" id="L47">        numero = entradas.size();</span>
+<span class="nc" id="L48">        return numero;</span>
+    }
+    //METODOS
+    @Override
+    public String toString() {
+<span class="nc" id="L53">        return &quot;Obra{&quot; + &quot;id=&quot; + idObra + &quot;, nombre=&quot; + nombre + &quot;, genero=&quot; + genero + &quot;, idioma=&quot; + idioma + &quot;, traduccionSignos=&quot; + traduccionSignos + '}';</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
