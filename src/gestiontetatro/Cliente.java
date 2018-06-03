@@ -20,6 +20,10 @@ public class Cliente {
     private String email;
     private char metodopago;
     
+    public Cliente(){
+        
+    }
+    
     public Cliente(String NIF, String nombre, String apellidos, String email, char metodopago) throws ValidarDNI {
         
         try{
@@ -33,9 +37,7 @@ public class Cliente {
                 else{
                     
                 }
-               
-            
-            
+   
         }
         catch(ValidarDNI e){
             System.out.println("Se ha producido una excepcion en el DNI");
@@ -85,7 +87,7 @@ public class Cliente {
                  System.out.println("Sus entradas han quedado reservadas");
             }
         else{
-                 System.out.println("no quedan entradas disponibles o no coincide el id de entrada");
+                 System.out.println("No quedan entradas disponibles o no coincide el id de entrada");
                             }
     }
 }

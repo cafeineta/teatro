@@ -13,60 +13,52 @@ import java.util.Scanner;
  */
 public class ValidarFecha extends Exception{
     
-    static Scanner Entrada=new Scanner(System.in);
-    static private int dia=0,mes=0;
-    static private boolean seguir;
-    
     
     public ValidarFecha(){
         super("La fecha introducida no es válida");
         }
     
+    /**
+     * Función que nos permite comprobar que el día introducido para una fecha es válido
+     * @param di día que hemos introducido en el constructor de la clase y queremos validar
+     * @return la fecha que hemos introducido si es válida, si no lanza una excepción
+     * @throws gestiontetatro.ValidarFecha 
+     */
      public static int validaDia(int di) throws ValidarFecha{
-         
-         do { 
-             //di=Entrada.nextInt();
+         int dia=0;
+      
          if(di>=1 && di<=31){
             System.out.println("BIEN HECHO");
-              dia=di;}
+             dia=di;
+         }
          
          else{
-            System.out.println("Se ha equivocado de día, ¿Quiere repetir?");
-            seguir=Entrada.nextBoolean();
-            if(seguir=true){
-                System.out.println("DÍA NUEVO");
-                di=Entrada.nextInt();
-                }
-            else{
-                
-            }
             throw new ValidarFecha();
          }
          
-         }
-         while(seguir==true);
          return dia;
      }
     
+     /**
+     * Función que nos permite comprobar que el mes introducido para una fecha es válido
+     * @param me mes que hemos introducido en el constructor de la clase y queremos validar
+     * @return el mes que hemos introducido si es válida, si no lanza una excepción
+     * @throws gestiontetatro.ValidarFecha 
+     */
     public static int validaMes (int me) throws ValidarFecha{
-        do{
-           
+        int mes=0;
+            
         if(me>=1 && me<=12){
             System.out.println("BIEN HECHO");
-        mes=me;
+            mes=me;
         }
         else{
-            System.out.println("¿Quiere repetir el mes?");
-            seguir=Entrada.nextBoolean();
-            if(seguir=true){
-                System.out.println("MES NUEVO");
-                me=Entrada.nextInt();
-                }
-
+           
             throw new ValidarFecha();
-}
-            } while (seguir==true);     
+        }
+            return mes;
+            }     
         
-        return mes;
 }
-}
+      
+

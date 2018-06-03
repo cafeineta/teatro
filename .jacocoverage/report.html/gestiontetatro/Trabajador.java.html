@@ -5,8 +5,12 @@
  */
 package gestiontetatro;
 
+import static gestiontetatro.ValidarFecha.validaDia;
+import static gestiontetatro.ValidarFecha.validaMes;
 import static gestiontetatro.ValidarTelefono.validaTel;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,27 +23,33 @@ public class Trabajador {
     private String NIF, nombre, apellidos, telefono, direccion;
     private Calendar fechaNacimiento, fechaIngreso;
 
-<span class="fc" id="L22">    public Trabajador(String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {</span>
+<span class="fc" id="L26">    public Trabajador(String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {</span>
         try{
-<span class="fc" id="L24">            this.NIF = NIF;</span>
-<span class="fc" id="L25">            this.nombre = nombre;</span>
-<span class="fc" id="L26">            this.apellidos = apellidos;</span>
-<span class="fc" id="L27">            this.telefono = validaTel(telefono);</span>
-<span class="fc" id="L28">            this.direccion = direccion;</span>
-<span class="nc" id="L29">            this.fechaNacimiento.set(año1, mes1, dia1);</span>
-<span class="nc" id="L30">            this.fechaIngreso.set(año2, mes2, dia2);</span>
+<span class="fc" id="L28">            this.NIF = NIF;</span>
+<span class="fc" id="L29">            this.nombre = nombre;</span>
+<span class="fc" id="L30">            this.apellidos = apellidos;</span>
+<span class="fc" id="L31">            this.telefono = validaTel(telefono);</span>
+<span class="fc" id="L32">            this.direccion = direccion;</span>
+<span class="fc" id="L33">            int diaval=validaDia(dia1);</span>
+<span class="fc" id="L34">            int mesval=validaMes(mes1);</span>
+<span class="nc" id="L35">            this.fechaNacimiento.set(año1, mesval, diaval);</span>
+<span class="nc" id="L36">            diaval=validaDia(dia2);</span>
+<span class="nc" id="L37">            mesval=validaMes(mes2);</span>
+<span class="nc" id="L38">            this.fechaIngreso.set(año2, mesval, diaval);</span>
         }
-<span class="nc" id="L32">        catch(ValidarTelefono e){</span>
-<span class="nc" id="L33">            e.printStackTrace();</span>
-<span class="nc" id="L34">        }</span>
-<span class="nc" id="L35">    }</span>
+<span class="nc" id="L40">        catch(ValidarTelefono e){</span>
+<span class="nc" id="L41">            e.printStackTrace();</span>
+<span class="nc" id="L42">        } catch (ValidarFecha ex) {</span>
+<span class="nc" id="L43">            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L44">        }</span>
+<span class="nc" id="L45">    }</span>
 
-<span class="nc" id="L37">    public Trabajador() {</span>
-<span class="nc" id="L38">    }</span>
+<span class="nc" id="L47">    public Trabajador() {</span>
+<span class="nc" id="L48">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L42">        return &quot;Trabajador{&quot; + &quot;NIF=&quot; + NIF + &quot;, nombre=&quot; + nombre + &quot;, apellidos=&quot; + apellidos + &quot;, telefono=&quot; + telefono + &quot;, direccion=&quot; + direccion + &quot;, fechaNacimiento=&quot; + fechaNacimiento + &quot;, fechaIngreso=&quot; + fechaIngreso + '}';</span>
+<span class="nc" id="L52">        return &quot;Trabajador{&quot; + &quot;NIF=&quot; + NIF + &quot;, nombre=&quot; + nombre + &quot;, apellidos=&quot; + apellidos + &quot;, telefono=&quot; + telefono + &quot;, direccion=&quot; + direccion + &quot;, fechaNacimiento=&quot; + fechaNacimiento + &quot;, fechaIngreso=&quot; + fechaIngreso + '}';</span>
     }
     
     

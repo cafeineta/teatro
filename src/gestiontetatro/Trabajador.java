@@ -8,6 +8,7 @@ package gestiontetatro;
 import static gestiontetatro.ValidarFecha.validaDia;
 import static gestiontetatro.ValidarFecha.validaMes;
 import static gestiontetatro.ValidarTelefono.validaTel;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,10 @@ public class Trabajador {
     //atributos
     private String NIF, nombre, apellidos, telefono, direccion;
     private Calendar fechaNacimiento, fechaIngreso;
-
+ 
+    public Trabajador() {
+    }
+    
     public Trabajador(String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {
         try{
             this.NIF = NIF;
@@ -44,7 +48,28 @@ public class Trabajador {
         }
     }
 
-    public Trabajador() {
+    public Calendar getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+    
+    /**
+     * Función que transforma la fecha dada por el sistema al formato dia/mes/año
+     * @return la fecha en el formato indicado anteriormente
+     */
+    public String formatoFechaNaci(){
+        SimpleDateFormat sdf= new SimpleDateFormat("dd/MMMMM/yyyy");
+        
+        return sdf.format(this.fechaNacimiento.getTime());
+    }
+    
+    /**
+     * Función que transforma la fecha dada por el sistema al formato dia/mes/año
+     * @return la fecha en el formato indicado anteriormente
+     */
+    public String formatoFechaIngreso(){
+        SimpleDateFormat sdf= new SimpleDateFormat("dd/MMMMM/yyyy");
+        
+        return sdf.format(this.fechaIngreso.getTime());
     }
 
     @Override
