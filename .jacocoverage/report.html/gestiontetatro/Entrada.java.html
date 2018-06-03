@@ -5,6 +5,9 @@
  */
 package gestiontetatro;
 
+import static gestiontetatro.ValidarFecha.validaDia;
+import static gestiontetatro.ValidarFecha.validaMes;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -12,26 +15,38 @@ import java.util.Calendar;
  * @author DAW112
  */
 public class Entrada {
-    private int identrda;
-    private Calendar fechacompra;
+    private int identrada;
+<span class="pc" id="L19">    private Calendar fechacompra=Calendar.getInstance();</span>
     private double precio;
 
-<span class="fc" id="L19">    public Entrada() {</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L22">    public Entrada() {</span>
+<span class="fc" id="L23">    }</span>
 
-<span class="nc" id="L22">    public Entrada(int identrda, Calendar fechacompra, double precio) {</span>
-<span class="nc" id="L23">       this.identrda = identrda;</span>
-<span class="nc" id="L24">        this.fechacompra = fechacompra;</span>
-<span class="nc" id="L25">        this.precio = precio;</span>
-<span class="nc" id="L26">    }</span>
-
-    public int getIdentrda() {
-<span class="nc" id="L29">        return identrda;</span>
+<span class="nc" id="L25">    public Entrada(int identrada, int a, int m, int d, double precio) throws ValidarFecha {</span>
+<span class="nc" id="L26">       this.identrada = identrada;</span>
+<span class="nc" id="L27">       int diaval=validaDia(d);</span>
+<span class="nc" id="L28">       int mesval=validaMes(m);</span>
+<span class="nc" id="L29">        this.fechacompra.set(a, mesval, diaval);</span>
+<span class="nc" id="L30">        this.precio = precio;</span>
+<span class="nc" id="L31">    }</span>
+    
+    /**
+     * Función que transforma la fecha dada por el sistema al formato dia/mes/año
+     * @return la fecha en el formato indicado anteriormente
+     */
+    public String formatoFechaNaci(){
+<span class="nc" id="L38">        SimpleDateFormat sdf= new SimpleDateFormat(&quot;dd/MMMMM/yyyy&quot;);</span>
+        
+<span class="nc" id="L40">        return sdf.format(this.fechacompra.getTime());</span>
     }
 
-    public void setIdentrda(int identrda) {
-<span class="nc" id="L33">        this.identrda = identrda;</span>
-<span class="nc" id="L34">    }</span>
+    public int getIdentrda() {
+<span class="nc" id="L44">        return identrada;</span>
+    }
+
+    public void setIdentrada(int identrada) {
+<span class="nc" id="L48">        this.identrada = identrada;</span>
+<span class="nc" id="L49">    }</span>
     
     
     

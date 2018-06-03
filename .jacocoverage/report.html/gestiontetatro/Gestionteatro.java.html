@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Gestionteatro.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;gestiontetatro&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">gestiontetatro</a> &gt; <span class="el_source">Gestionteatro.java</span></div><h1>Gestionteatro.java</h1><pre class="source lang-java linenums">
+package gestiontetatro;
+
+/**
+ *
+ * @author DAW112
+ */
+<span class="nc" id="L8">public class Gestionteatro {</span>
+
+    
+    
+    
+    public static void main(String[] args) throws ValidarDNI, ValidarTelefono {
+     try{
+         
+         //creamos un cliente
+<span class="fc" id="L17">         Cliente c1= new Cliente(&quot;72208088W&quot;,&quot;cris&quot;,&quot;blanco&quot;,&quot;email&quot;,'T');</span>
+         
+         //creamos una obra
+<span class="fc" id="L20">        Obra obra=new Obra(1,&quot;hola&quot;,&quot;comedia&quot;,&quot;español&quot;,true,10);</span>
+        
+        //el cliente compra entradas para esa obra
+<span class="fc" id="L23">        c1.compraEntrada(1, 3, obra);</span>
+        
+        //el cliente reserva entradas para esa obra
+<span class="fc" id="L26">        c1.reservaEntradas(1, 2, obra);</span>
+        
+        //creamos un trabajador
+<span class="fc" id="L29">        Trabajador t1=new Trabajador(&quot;dni&quot;,&quot;yo&quot;,&quot;tu&quot;,&quot;676064079&quot;,&quot;direc&quot;,2017,1,4,2000,1,4);</span>
+<span class="fc" id="L30">        System.out.println(t1.getFechaNacimiento());</span>
+        
+        //creamos un taquillero
+<span class="fc" id="L33">        Ttaquilla taquillero=new Ttaquilla(25, &quot;13761000L&quot;,&quot;Pablo&quot;, &quot;García&quot;, &quot;645639001&quot;,&quot;Torrelavega&quot;, 1992,2,21,2017,5,12);</span>
+        //el taquillero vende entrada para la obra creada
+<span class="fc" id="L35">        taquillero.vendeEntrada(1, 2, obra);</span>
+        
+<span class="nc" id="L37">     }catch (NullPointerException ex){</span>
+<span class="nc" id="L38">         System.out.println(&quot;no hay fecha&quot;);</span>
+     }
+<span class="nc" id="L40">     catch(ValidarDNI e){</span>
+<span class="nc" id="L41">         System.out.println(&quot;ERROR al introducir el DNI&quot;);</span>
+<span class="nc" id="L42">         e.printStackTrace();</span>
+     }
+<span class="nc" id="L44">     catch(ValidarTelefono e){</span>
+<span class="nc" id="L45">         System.out.println(&quot;error tele&quot;);</span>
+<span class="nc" id="L46">         e.printStackTrace();</span>
+<span class="pc" id="L47">     }</span>
+        
+        
+        
+       
+<span class="fc" id="L52">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

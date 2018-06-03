@@ -8,6 +8,7 @@ package gestiontetatro;
 import static gestiontetatro.ValidarFecha.validaDia;
 import static gestiontetatro.ValidarFecha.validaMes;
 import static gestiontetatro.ValidarTelefono.validaTel;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,35 +22,59 @@ public class Trabajador {
     
     //atributos
     private String NIF, nombre, apellidos, telefono, direccion;
-    private Calendar fechaNacimiento, fechaIngreso;
-
-<span class="fc" id="L26">    public Trabajador(String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {</span>
+<span class="pc" id="L25">    private Calendar fechaNacimiento=Calendar.getInstance(), fechaIngreso=Calendar.getInstance();</span>
+ 
+<span class="nc" id="L27">    public Trabajador() {</span>
+<span class="nc" id="L28">    }</span>
+    
+<span class="fc" id="L30">    public Trabajador(String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {</span>
         try{
-<span class="fc" id="L28">            this.NIF = NIF;</span>
-<span class="fc" id="L29">            this.nombre = nombre;</span>
-<span class="fc" id="L30">            this.apellidos = apellidos;</span>
-<span class="fc" id="L31">            this.telefono = validaTel(telefono);</span>
-<span class="fc" id="L32">            this.direccion = direccion;</span>
-<span class="fc" id="L33">            int diaval=validaDia(dia1);</span>
-<span class="fc" id="L34">            int mesval=validaMes(mes1);</span>
-<span class="nc" id="L35">            this.fechaNacimiento.set(año1, mesval, diaval);</span>
-<span class="nc" id="L36">            diaval=validaDia(dia2);</span>
-<span class="nc" id="L37">            mesval=validaMes(mes2);</span>
-<span class="nc" id="L38">            this.fechaIngreso.set(año2, mesval, diaval);</span>
+<span class="fc" id="L32">            this.NIF = NIF;</span>
+<span class="fc" id="L33">            this.nombre = nombre;</span>
+<span class="fc" id="L34">            this.apellidos = apellidos;</span>
+<span class="fc" id="L35">            this.telefono = validaTel(telefono);</span>
+<span class="fc" id="L36">            this.direccion = direccion;</span>
+<span class="fc" id="L37">            int diaval=validaDia(dia1);</span>
+<span class="fc" id="L38">            int mesval=validaMes(mes1);</span>
+<span class="fc" id="L39">            this.fechaNacimiento.set(año1, mesval, diaval);</span>
+<span class="fc" id="L40">            diaval=validaDia(dia2);</span>
+<span class="fc" id="L41">            mesval=validaMes(mes2);</span>
+<span class="fc" id="L42">            this.fechaIngreso.set(año2, mesval, diaval);</span>
         }
-<span class="nc" id="L40">        catch(ValidarTelefono e){</span>
-<span class="nc" id="L41">            e.printStackTrace();</span>
-<span class="nc" id="L42">        } catch (ValidarFecha ex) {</span>
-<span class="nc" id="L43">            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L44">        }</span>
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L44">        catch(ValidarTelefono e){</span>
+<span class="nc" id="L45">            e.printStackTrace();</span>
+<span class="nc" id="L46">        } catch (ValidarFecha ex) {</span>
+<span class="nc" id="L47">            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L48">        }</span>
+<span class="fc" id="L49">    }</span>
 
-<span class="nc" id="L47">    public Trabajador() {</span>
-<span class="nc" id="L48">    }</span>
+    public Calendar getFechaNacimiento() {
+<span class="fc" id="L52">        return fechaNacimiento;</span>
+    }
+    
+    /**
+     * Función que transforma la fecha dada por el sistema al formato dia/mes/año
+     * @return la fecha en el formato indicado anteriormente
+     */
+    public String formatoFechaNaci(){
+<span class="nc" id="L60">        SimpleDateFormat sdf= new SimpleDateFormat(&quot;dd/MMMMM/yyyy&quot;);</span>
+        
+<span class="nc" id="L62">        return sdf.format(this.fechaNacimiento.getTime());</span>
+    }
+    
+    /**
+     * Función que transforma la fecha dada por el sistema al formato dia/mes/año
+     * @return la fecha en el formato indicado anteriormente
+     */
+    public String formatoFechaIngreso(){
+<span class="nc" id="L70">        SimpleDateFormat sdf= new SimpleDateFormat(&quot;dd/MMMMM/yyyy&quot;);</span>
+        
+<span class="nc" id="L72">        return sdf.format(this.fechaIngreso.getTime());</span>
+    }
 
     @Override
     public String toString() {
-<span class="nc" id="L52">        return &quot;Trabajador{&quot; + &quot;NIF=&quot; + NIF + &quot;, nombre=&quot; + nombre + &quot;, apellidos=&quot; + apellidos + &quot;, telefono=&quot; + telefono + &quot;, direccion=&quot; + direccion + &quot;, fechaNacimiento=&quot; + fechaNacimiento + &quot;, fechaIngreso=&quot; + fechaIngreso + '}';</span>
+<span class="nc" id="L77">        return &quot;Trabajador{&quot; + &quot;NIF=&quot; + NIF + &quot;, nombre=&quot; + nombre + &quot;, apellidos=&quot; + apellidos + &quot;, telefono=&quot; + telefono + &quot;, direccion=&quot; + direccion + &quot;, fechaNacimiento=&quot; + fechaNacimiento + &quot;, fechaIngreso=&quot; + fechaIngreso + '}';</span>
     }
     
     

@@ -19,9 +19,9 @@ public class Ttaquilla extends Trabajador{
           
     
     public Ttaquilla(int idTaquilla, String NIF, String nombre, String apellidos, String telefono, String direccion, int año1, int mes1, int dia1, int año2, int mes2, int dia2) throws ValidarTelefono {
-<span class="nc" id="L22">        super(NIF, nombre, apellidos, telefono, direccion, año1, mes1, dia1, año2, mes2, dia2);</span>
-<span class="nc" id="L23">        this.idTaquilla = idTaquilla;</span>
-<span class="nc" id="L24">    }</span>
+<span class="fc" id="L22">        super(NIF, nombre, apellidos, telefono, direccion, año1, mes1, dia1, año2, mes2, dia2);</span>
+<span class="fc" id="L23">        this.idTaquilla = idTaquilla;</span>
+<span class="fc" id="L24">    }</span>
 
 <span class="nc" id="L26">    public Ttaquilla() {</span>
 <span class="nc" id="L27">    }</span>
@@ -42,24 +42,16 @@ public class Ttaquilla extends Trabajador{
      */
     public void vendeEntrada(int idObra, int cantidad, Obra obrat){
         
-       
-           
-<span class="nc" id="L47">              Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui</span>
-<span class="nc bnc" id="L48" title="All 4 branches missed.">             if((obrat.getIdObra()==idObra) &amp;&amp; (obrat.getnumentradas())&gt;= cantidad){</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">                while(cantidad&gt;0){    </span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">                    while (borrar.hasNext()){</span>
-<span class="nc" id="L51">                        Entrada et = (Entrada)borrar.next();</span>
-                        
-                            
-<span class="nc" id="L54">                                 cantidad--;</span>
-<span class="nc" id="L55">                                 obrat.entradas.remove(et);</span>
-<span class="nc" id="L56">                    }</span>
-                           
-                }
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">       if(obrat.getIdObra()==idObra){</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            for(int i=cantidad; i&gt;0; i--){</span>
+<span class="fc" id="L47">                obrat.entradas.removeLast();</span>
             }
+<span class="fc" id="L49">            System.out.println(obrat.entradas.size());</span>
+<span class="fc" id="L50">            System.out.println(&quot;Entradas vendidas correctamente&quot;);</span>
+        }
         else{
-<span class="nc" id="L61">                 System.out.println(&quot;no quedan entradas disponibles o no coincide el id de entrada&quot;);</span>
-                            }
-<span class="nc" id="L63">    }</span>
+<span class="nc" id="L53">            System.out.println(&quot;No se pueden vender las entradas, no hay suficientes o no coincide el id&quot;);</span>
+        }
+<span class="fc" id="L55">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

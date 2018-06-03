@@ -22,7 +22,7 @@ public class Trabajador {
     
     //atributos
     private String NIF, nombre, apellidos, telefono, direccion;
-    private Calendar fechaNacimiento, fechaIngreso;
+    private Calendar fechaNacimiento=Calendar.getInstance(), fechaIngreso=Calendar.getInstance();
  
     public Trabajador() {
     }

@@ -14,23 +14,28 @@ public class ValidarTelefono extends Exception{
     public ValidarTelefono() {
 <span class="nc" id="L15">        super(&quot;Telefono introducido incorrecto&quot;);</span>
 <span class="nc" id="L16">    }</span>
-    
+    /**
+     * metdodo que valida que el numero de telefono sea correcto, si no lo es deberia lanzar la excepcion y notificarlo adecuadamente
+     * @param tele es el numero de telefono a evaluar por el metodo
+     * @return si el telefono es adecuado retornara el telefono cargado en el String bueno
+     * @throws ValidarTelefono 
+     */
     public static String validaTel(String tele) throws ValidarTelefono{
-<span class="fc" id="L19">        String bueno = null;</span>
+<span class="fc" id="L24">        String bueno = null;</span>
   
-<span class="fc" id="L21">            int longitud=tele.length();</span>
-<span class="pc bpc" id="L22" title="1 of 2 branches missed.">            if(longitud==9){</span>
+<span class="fc" id="L26">            int longitud=tele.length();</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">            if(longitud==9){</span>
                 
-<span class="fc bfc" id="L24" title="All 2 branches covered.">                for (int i = 0; i &lt; longitud; i++) {</span>
-<span class="pc bpc" id="L25" title="2 of 4 branches missed.">                    if(tele.charAt(i)&gt;=48 &amp;&amp; tele.charAt(i)&lt;=57){</span>
-<span class="fc" id="L26">                        bueno=bueno+tele.charAt(i);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">                for (int i = 0; i &lt; longitud; i++) {</span>
+<span class="pc bpc" id="L30" title="2 of 4 branches missed.">                    if(tele.charAt(i)&gt;=48 &amp;&amp; tele.charAt(i)&lt;=57){</span>
+<span class="fc" id="L31">                        bueno=bueno+tele.charAt(i);</span>
                     }
                     else{
-<span class="nc" id="L29">                        throw new ValidarTelefono();</span>
+<span class="nc" id="L34">                        throw new ValidarTelefono();</span>
                     }
                 }
             }
-<span class="fc" id="L33">        return bueno;</span>
+<span class="fc" id="L38">        return bueno;</span>
     }
     
      

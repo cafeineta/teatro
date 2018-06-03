@@ -49,7 +49,7 @@ public class Cliente {
      * funcion que realiza la compra de una entrada, si el Id de la Obra coincide con el de la obra podida por el cliente, y hay entradas suficientes, deberia permitir la compra de estas
      * @param idObra identificador de la Obra
      * @param cantidad contidad de entradas requeridas por el cliente
-     * @param obrat Objeto Obra del que necesitamos obtenr metodos
+     * @param obrat Objeto Obra del que necesitamos obtener metodos
      */
     public void compraEntrada(int idObra, int cantidad, Obra obrat){
         if(obrat.getIdObra()==idObra){
@@ -60,7 +60,7 @@ public class Cliente {
             System.out.println("Entradas compradas correctamente");
         }
         else{
-            System.out.println("No se pueden realizar las entradas, no hay suficiente no coincide el id");
+            System.out.println("No se pueden realizar las entradas, no hay suficientes o no coincide el id");
         }
        
     }
@@ -71,23 +71,15 @@ public class Cliente {
      * @param obrat 
      */
     public void reservaEntradas (int idObra, int cantidad, Obra obrat){
-                 Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui
-             if((obrat.getIdObra()==idObra) && (obrat.getnumentradas())>= cantidad){
-                while(cantidad>0){    
-                    while (borrar.hasNext()){
-                        Entrada et = (Entrada)borrar.next();
-                        
-                            
-                                 cantidad--;
-                                 obrat.entradas.remove(et);
-                                
-                    }
-                           
-                }
-                 System.out.println("Sus entradas han quedado reservadas");
+                 if(obrat.getIdObra()==idObra){
+            for(int i=cantidad; i>0; i--){
+                obrat.entradas.removeLast();
             }
+            System.out.println(obrat.entradas.size());
+            System.out.println("Entradas reservadas correctamente");
+        }
         else{
-                 System.out.println("No quedan entradas disponibles o no coincide el id de entrada");
-                            }
+            System.out.println("No se pueden reservar las entradas, no hay suficientes o no coincide el id");
+        }
     }
 }

@@ -42,23 +42,15 @@ public class Ttaquilla extends Trabajador{
      */
     public void vendeEntrada(int idObra, int cantidad, Obra obrat){
         
-       
-           
-              Iterator borrar  = obrat.entradas.iterator(); //si no borra mira aqui
-             if((obrat.getIdObra()==idObra) && (obrat.getnumentradas())>= cantidad){
-                while(cantidad>0){    
-                    while (borrar.hasNext()){
-                        Entrada et = (Entrada)borrar.next();
-                        
-                            
-                                 cantidad--;
-                                 obrat.entradas.remove(et);
-                    }
-                           
-                }
+       if(obrat.getIdObra()==idObra){
+            for(int i=cantidad; i>0; i--){
+                obrat.entradas.removeLast();
             }
+            System.out.println(obrat.entradas.size());
+            System.out.println("Entradas vendidas correctamente");
+        }
         else{
-                 System.out.println("no quedan entradas disponibles o no coincide el id de entrada");
-                            }
+            System.out.println("No se pueden vender las entradas, no hay suficientes o no coincide el id");
+        }
     }
 }
